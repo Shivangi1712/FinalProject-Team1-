@@ -96,7 +96,24 @@
                     
                     
                     
-                <button class="btn btn-info">Log In</button>
+                <button class="btn btn-info" onclick="validate()">Log In</button>
+
+                <script>
+                    function validate() {
+                        if (document.getElementById("email").value == "") {
+                            alert("Email cannot be blank");
+                            return false;
+                            
+                        }
+                        else if (document.getElementById("pass").value == "") {
+                             alert("Password cannot be blank");
+                             
+                             
+                        }
+                        return true
+                        
+                    }
+                    </script>
                 
                 <br/>
          
@@ -123,70 +140,6 @@
 
 
     </div>
-
-
-
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <hr />
-            </div>
-        </div>
-        
-        
-        <div class="row">
-            <div class="col-md-4" style="text-align: center;">
-<ul style="list-style: none;float: center;">
-                    <li style="list-style: none;center: left;padding: 10px;"><a href="#"
-                            style="margin-top: 30px;font-size: 20px;"><u>Terms</u></a></li>
-                 
-
-                </ul>
-            </div>
-
-            <div class="col-md-4" style="text-align: center;">
-                <ul style="list-style: none;float: center;">
-                 
-                    <li style="list-style: none;float: center;padding: 10px;"><a href="#"
-                            style="margin-top: 30px;font-size: 20px;"><u>Privacy Policy</u></a></li>
-                 
-
-                </ul>
-            </div>
-
-            <div class="col-md-4" style="text-align: center;">
-<ul style="list-style: none;float: center;">
-              
-                    <li style="list-style: none;float: center;padding: 10px;"><a href="#"
-                            style="margin-top: 30px;font-size: 20px;"><u>Contact Us</u></a></li>
-
-                </ul>
-            </div>
-
-        </div>
-        <div class="row">
-            <div class="col-md-4">
-
-            </div>
-            <div class="col-md-4" style="text-align: center;font-size: 14px;">
-                Clocksy Towers 557 Boul Henri-BourassaE, Montreal, QC H2C 1E2<br />
-                <span class="glyphicon glyphicon-phone"> Call us @ 514-912-4691</span>
-                <br />
-
-                Copy Right Clocksymanagement Pvt LTD
-<span class="glyphicon glyphicon-envelope"> clocksy123@gmail.com</span>
-                <br />
-
-            </div>
-            <div class="col-md-4">
-
-            </div>
-        </div>
-
-    </div>
-
-
-
 </body>
 
 </html>
