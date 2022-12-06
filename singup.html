@@ -41,7 +41,7 @@
         <div class="container-fluid">
             <div class="navbar-header">
                 <img src="images/logo.png" style="width: 70px;margin-top: 15px;" />
-                
+                <!-- <a class="navbar-brand" href="#">GSY Services</a> -->
             </div>
             <ul class="nav navbar-nav">
                 <li class="active"><a href="index.php">
@@ -73,14 +73,14 @@
                <form method="GET" action="singup.php">
                     <div class="form-group row">
 
-                        <div class="col-xs-6">
+                        <div class="col-xs-6" title="Please enter this field">
                            
-                            <input class="form-control" id="fname" name="fname" type="text" placeholder="First Name" required>
+                            <input class="form-control" id="fname" name="fname" type="text" placeholder="First Name"  minlength="3">
                         </div>
                        
                         <div class="col-xs-6">
                            
-                            <input class="form-control" id="lname" name="lname"  type="text" placeholder="Last Name" required>
+                            <input class="form-control" id="lname" name="lname"  type="text" placeholder="Last Name" minlength="3" >
                         </div>
 
                         
@@ -92,12 +92,12 @@
                            
                              <input type="tel" class="form-control" id="phone" name="phone" placeholder="514-963-9812" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
                         title="Must match Pattern"
-                        required>
+                        >
                         </div>
                        
                         <div class="col-xs-6">
                            
-                            <input class="form-control" id="email" name="email"  type="email" placeholder="Email" required>
+                            <input class="form-control" id="email" name="email"  type="email" placeholder="Email" pattern=".+@gmail\.com" size="30">
                         </div>
 
                         
@@ -107,25 +107,87 @@
 
                         <div class="col-xs-6">
                            
-                            <input class="form-control" id="pass" name="pass" type="password" placeholder="Password" required>
+                            <input class="form-control" id="pass" name="pass" type="password" placeholder="Password" minlength=8 >
                         </div>
                        
                         <div class="col-xs-6">
                            
-                            <input class="form-control" id="ex3" type="password" placeholder="Confirm Password" required>
+                            <input class="form-control" id="cpass"  type="password" placeholder="Confirm Password" minlength=8 >
                         </div>
 
                         
                     </div>
                     
+                    
+                  
+                    
                       <div class="form-group row">
 
                         <div class="col-xs-12">
                            
-                            <input class="form-control" id="add" name="add" type="text" placeholder="Address" required>
+                            <input class="form-control" id="add" name="add" type="text" placeholder="Address" minlength=15 >
                         </div>
                        
                     
+                        
+                    </div>
+                    
+                    
+                     <div class="form-group row">
+
+                        <div class="col-xs-6">
+                           <p style="text-align:left">Card Number</p>
+                             <input type="tel" class="form-control" id="cno" name="cno" placeholder="1111-2222-3333-4444" pattern="[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{4}"
+                        title="Must match Pattern"
+                        >
+                        </div>
+                       
+                        <div class="col-xs-6">
+                           <p style="text-align:left">CVV</p>
+                             <input type="password" class="form-control" id="cvv" name="cvv" placeholder="XXX" pattern="[0-9]{3}"
+                        title="Must match Pattern"
+                        >
+                        </div>
+
+                        
+                    </div>
+                    
+                     <div class="form-group row">
+
+                        <div class="col-xs-6">
+                           <p style="text-align:left">Exp Month</p>
+                             <select class="form-control" id="month" name="month"> 
+                            <option>Jan</option>
+                            <option>Feb</option>
+                            <option>Mar</option>
+                            <option>Apr</option>
+                             <option>May</option>
+                            <option>Jun</option>
+                            <option>Jul</option>
+                            <option>Aug</option>
+                             <option>Sep</option>
+                            <option>Oct</option>
+                            <option>Nov</option>
+                            <option>Dec</option>
+                        </select>
+                             
+                        </div>
+                       
+                        <div class="col-xs-6">
+                           <p style="text-align:left">Exp Year</p>
+                             <select class="form-control" id="year" name="year"> 
+                            <option>2022</option>
+                            <option>2023</option>
+                            <option>2024</option>
+                            <option>2025</option>
+                            <option>2026</option>
+                            <option>2027</option>
+                            <option>2028</option>
+                            <option>2029</option>
+                            <option>2030</option>
+                        </select>
+                        </div>
+
                         
                     </div>
                     
@@ -134,22 +196,80 @@
 
                         <div class="col-xs-12" style="text-align:left">
                             <label style="text-align:left">Security Question</label>
-                           <select class="form-control" id="qus" name="qus">
-                               <option value="What is your First School name ?">What is your First School name ?</option>
-                               <option value="What is your First Job ?">What is your First Job ?</option>
-                               <option value="What is your First Car?">What is your First Car?</option>
-                               <option value="What is your maiden name ?">What is your maiden name ?</option>
-                           </select>
+                            <select class="form-control" id="qus" name="qus"> 
+                            <option>What is your pet Name?</option>
+                            <option>What is your first Job?</option>
+                            <option>What is your First Bike?</option>
+                            <option>What is your mother's maiden name?</option>
+                        </select>
                            <br/>
                            
-                                 <input class="form-control" id="ans" name="ans" type="text" placeholder="Enter Answer" required>
+                                 <input class="form-control" id="ans" name="ans" type="text" placeholder="Enter Answer" minlength=5 >
                      
                         </div>
                        
                     
                         
                     </div>
-                     <button class="btn btn-info">Sign Up</button>
+                     <button class="btn btn-info" id="btnSubmit" onclick="validate()">Sign Up</button>
+                     
+                     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+                        <script type="text/javascript">
+                            $(function () {
+                                $("#btnSubmit").click(function () {
+                                    var password = $("#pass").val();
+                                    var confirmPassword = $("#cpass").val();
+                                    if (password != confirmPassword) {
+                                        alert("Passwords do not match.");
+                                        return false;
+                                    }
+                                    return true;
+                                });
+                            });
+                        </script>
+                        <script>
+                            function validate() {
+                                if (document.getElementById("fname").value == "") {
+                                    alert("First name cannot be blank");
+                                    return false;
+                                    
+                                }
+                                else if (document.getElementById("lname").value == "") {
+                                     alert("Last name cannot be blank");
+                                     return false;
+                                }
+                                else if (document.getElementById("phone").value == "") {
+                                     alert("Phone number cannot be blank");
+                                     return false;
+                                 }
+                                 else if (document.getElementById("email").value == "") {
+                                     alert("Email cannot be blank");
+                                     return false;
+                                 }
+                                 else if (document.getElementById("pass").value == "") {
+                                     alert("Password cannot be blank");
+                                     return false;
+                                 }
+                                 else if (document.getElementById("add").value == "") {
+                                     alert("Address cannot be blank");
+                                     return false;
+                                 }
+                                 else if (document.getElementById("cno").value == "") {
+                                     alert("Card number should be filled");
+                                     return false;
+                                 }
+                                 else if (document.getElementById("cvv").value == "") {
+                                     alert("Cvv number should be filled");
+                                     return false;
+                                 }
+                                 else if (document.getElementById("ans").value == ""){
+                                     alert("Answer cannot be blank");
+                                     return false;
+                                     }
+                                
+                               }
+                            
+                            </script>
                 </form>
 
               
@@ -171,65 +291,6 @@
 
 
 
-
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <hr />
-            </div>
-        </div>
-        
-        
-        <div class="row">
-            <div class="col-md-4" style="text-align: center;">
-<ul style="list-style: none;float: center;">
-                    <li style="list-style: none;center: left;padding: 10px;"><a href="#"
-                            style="margin-top: 30px;font-size: 20px;"><u>Terms</u></a></li>
-                 
-
-                </ul>
-            </div>
-
-            <div class="col-md-4" style="text-align: center;">
-                <ul style="list-style: none;float: center;">
-                 
-                    <li style="list-style: none;float: center;padding: 10px;"><a href="#"
-                            style="margin-top: 30px;font-size: 20px;"><u>Privacy Policy</u></a></li>
-                 
-
-                </ul>
-            </div>
-
-            <div class="col-md-4" style="text-align: center;">
-<ul style="list-style: none;float: center;">
-              
-                    <li style="list-style: none;float: center;padding: 10px;"><a href="#"
-                            style="margin-top: 30px;font-size: 20px;"><u>Contact Us</u></a></li>
-
-                </ul>
-            </div>
-
-        </div>
-        <div class="row">
-            <div class="col-md-4">
-
-            </div>
-            <div class="col-md-4" style="text-align: center;font-size: 14px;">
-                Clocksy Towers 557 Boul Henri-BourassaE, Montreal, QC H2C 1E2<br />
-                <span class="glyphicon glyphicon-phone"> Call us @ 514-912-4691</span>
-                <br />
-
-                Copy Right Clocksymanagement Pvt LTD
-<span class="glyphicon glyphicon-envelope"> clocksy123@gmail.com</span>
-                <br />
-
-            </div>
-            <div class="col-md-4">
-
-            </div>
-        </div>
-
-    </div>
 
 
 </body>
